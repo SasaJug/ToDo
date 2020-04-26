@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/SasaJug/ToDo.svg?branch=master)](https://travis-ci.com/SasaJug/ToDo.svg?branch=master)
+<br />
 # Android Todo Application
 
 Simple Todo Android application with Firebase backend. Features:
