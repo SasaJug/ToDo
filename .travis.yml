@@ -29,9 +29,6 @@ before_script:
 - chmod +x gradlew
 script:
 - "./gradlew build check"
-branches:
-  only:
-  - master
 deploy:
   provider: releases
   user: SasaJug
@@ -41,5 +38,6 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+    all_branches: true
 
   #tag 1.1
