@@ -29,3 +29,7 @@ before_script:
 script:
   - ./gradlew clean build
   - ./gradlew test
+
+branches:
+  only:
+    - master
