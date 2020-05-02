@@ -10,8 +10,8 @@ android {
         applicationId "com.sasaj.todo"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -21,6 +21,16 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    def isRunningOnTravis = System.getenv("CI") == "true"
+
+    if (isRunningOnTravis) {
+        // configure keystore
+        signingConfigs.release.storeFile = file("../../keystore/todo/todo.jks ")
+        signingConfigs.release.storePassword = System.getenv("keystore_password")
+        signingConfigs.release.keyAlias = System.getenv("keystore_alias")
+        signingConfigs.release.keyPassword = System.getenv("keystore_alias_password")
     }
 
 // To inline the bytecode built with JVM target 1.8 into

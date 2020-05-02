@@ -11,6 +11,8 @@ android:
   - android-$ANDROID_API_LEVEL
   - extra
 before_install:
+- openssl aes-256-cbc -K $encrypted_c059649b4f34_key -iv $encrypted_c059649b4f34_iv
+  -in todo.jks.enc -out ../../keystore/todo/todo.jks -d
 - chmod +x gradlew
 install:
 - echo yes | sdkmanager "extras;android;m2repository"
@@ -34,10 +36,8 @@ deploy:
   user: SasaJug
   password:
     secure: jkRvQs5DffvuursmwBpmKeBCcCaHaPpx+Sx+J+Klxt+4Lm6A3ytGxGVxpv+9T8WJQIP0zWemixaz4OHHV4+yiLfZ1NKqtigtrN+JiwD5gfUd3PY3qrFgUgEzDzRRa5TlmO4rhWQKQR2O5qy1DCVHPYpkVLHJjgT0/nrIkle/LZjmelvuJ2qEFzbQYigExoiH738rkoKdZTcvNNZMT5ZRdmlNkTI+FPGlg/LXaA64gQ13Ezuoc9uYVNi5QoafgHYUgqcTFTjl2T5JfAXCfxWc8rSZBjq4gwjwsW5vBvAYOn7G4vrouwWelCDtI4z1b5+jLrzMsmYM5oPVUHStUL0fDekHqiE0SoKvTiyZrhQ5SJeCpgV4/3yEZJ5WA08p5AIKAv1MghiUcf0BbCQZ0Ak2zUDHCJrHDisfysecZtkTs4wZY6ZoeX94DDgugzgypBF0BIjVTat9kYfedIBpzo16MHnCQajXrRFl8FH8esEHWg6bvoNV4ha1asgirMTSs68UlRzVC5/VPQuzD+iNUNp0NbRBMLrj/ysvOjKw5kftwcBOj4n3brGBBcqCRZt9PkxdChiWnOpqt3zZDCtA8Dh9SGqqwCfDVPwSYlb9SOaLExXfFj48lrVn31bFO0vQjSbXTMxfhK4c++vUVMhn05aNAR4QCVqydcda7WkvbPexEWY=
-  file: "todo"
+  file: "ToDo/app/release/app-release.apk"
   skip_cleanup: true
   on:
     tags: true
     all_branches: true
-
-  #tag 1.1
