@@ -28,7 +28,8 @@ cache:
 before_script:
 - chmod +x gradlew
 script:
-- "./gradlew build check"
+- "./gradlew build"
+- "./gradlew test"
 deploy:
   provider: releases
   user: SasaJug
